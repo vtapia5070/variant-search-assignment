@@ -29,3 +29,7 @@ client/node_modules
 
 # Debug log from npm
 npm-debug.log
+
+data/variants.tsv
+
+.DS_Store
