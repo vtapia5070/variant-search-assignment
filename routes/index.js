@@ -113,13 +113,29 @@ function findMatchingKeys (queryStr) {
 }
 
 router.get('/genes', function (req, res) {
+  var searchQuery = req.query.name.toUpperCase();
+  if (!variantsData[searchQuery]) {
+    console.log('gene not found!');
+    // TODO: throw error
+  }
+  res.send(JSON.stringify({data: variantsData[searchQuery]}));
+});
+
+router.get('/genes/search', function (req, res) {
   var filteredData = [];
 
   // collect list of keys that match search query
   var searchQuery = req.query.search.toUpperCase();
-  var matchedGenes = findMatchingKeys(searchQuery);
+
+  // limit potential matches to 20 to prevent FE from
+  // holding unneccessary data - there ould be hundreds of matches
+  var matchedGenes = findMatchingKeys(searchQuery).slice(0, 20);
+  // ['ADA', 'ADAM18', 'ADAM19']
   matchedGenes.forEach(function (keyStr) {
-    filteredData.push(variantsData[keyStr]);
+    filteredData.push({
+      geneName: keyStr,
+      variants: variantsData[keyStr],
+    });
   });
 
   res.send(JSON.stringify({data: filteredData}));
