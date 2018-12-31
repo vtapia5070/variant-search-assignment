@@ -104,7 +104,6 @@ After groupBy
 
 function findMatchingKeys (queryStr) {
   var geneKeys = Object.keys(variantsData);
-  console.log('geneKeys', geneKeys);
   var matchedGenes = geneKeys.filter(function (gene) {
     return gene.indexOf(queryStr) === 0;
   });
