@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar/SearchBar.js';
+import VariantsTable from './VariantsTable/VariantsTable.js';
 import './App.css';
 
 class App extends Component {
@@ -7,7 +8,7 @@ class App extends Component {
     super();
     this.state = {
       searchData: [],
-      variantData: [],
+      variantsData: [],
       isSuggestionListHidden: false,
     };
   }
@@ -31,8 +32,9 @@ class App extends Component {
       .then((data) => {
         this.setState({
           ...this.state,
-          variantData: data.data,
+          variantsData: data.data,
         });
+        console.log('variants data:', data.data);
       }).catch(function (error) {
         console.log(error);
       });
@@ -60,9 +62,13 @@ class App extends Component {
             isSuggestionListHidden={this.state.isSuggestionListHidden} 
           />
         </header>
-        <section>
-          
-        </section>
+        {
+          this.state.variantsData.length > 0 && (
+            <section>
+              <VariantsTable variantsData={this.state.variantsData} />
+            </section>
+          )
+        }
       </div>
     );
   }

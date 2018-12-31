@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background-color: #e2e2e2;
+  min-height: 100vh;
+  min-width: 100vh;
 }
 
 .App-logo {
@@ -8,8 +11,10 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; 
+  TODO: add animation to slide search header up when gene is fetched
+  add loading animation
+  */
   display: flex;
   flex-direction: column;
   align-items: center;
