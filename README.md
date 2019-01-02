@@ -29,10 +29,6 @@ Start the server:
 
 ```cd server```
 
-Unzip the data source:
-
-```unzip data/variants.tsv.zip```
-
 Run start script:
 
 ```npm start``` or ```yarn start``` (if you have yarn installed globally)
