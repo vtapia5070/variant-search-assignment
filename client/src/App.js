@@ -15,28 +15,43 @@ class App extends Component {
 
   fetchGenes (query) {
     fetch(`/genes/search?search=${query}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 500) {
+          return res.json()
+            .then((json) => {
+              const { message, stackTrace } = json;
+              throw new Error(message, stackTrace);
+            });
+        } else {
+          return res.json();
+        }
+      })
       .then((data) => {
         this.setState({
           ...this.state,
           searchData: data.data,
         });
-      }).catch(function (error) {
-        console.log(error);
       });
   }
 
   fetchVariantsByGene (query) {
     fetch(`/genes?name=${query}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 500) {
+          return res.json()
+            .then((json) => {
+              const { message, stackTrace } = json;
+              throw new Error(message, stackTrace);
+            });
+        } else {
+          return res.json();
+        }
+      })
       .then((data) => {
         this.setState({
           ...this.state,
           variantsData: data.data,
         });
-        console.log('variants data:', data.data);
-      }).catch(function (error) {
-        console.log(error);
       });
   }
 
