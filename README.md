@@ -1,5 +1,33 @@
 # Variant Search Coding Assignment
 
+## Requirements
+
+- Node ^v11.4.0
+
+### Installing Dependencies
+
+For the server, make sure you are in the server directory:
+```cd server```
+
+```npm install``` or ```yarn``` (if you have yarn installed globally)
+
+
+For the Client, make sure you are in the client/ directory:
+```cd client```
+
+```npm install``` or ```yarn``` (if you have yarn installed globally)
+
+### Running App locally
+Start the server:
+```cd server```
+```npm start``` or ```yarn start``` (if you have yarn installed globally)
+The server is running on http://localhost:3001/
+
+Start the client:
+```cd client```
+```npm start``` or ```yarn start``` (if you have yarn installed globally)
+The client is running on http://localhost:3000/
+
 ## Assignment
 
 Create a web application that allows a user to search for genomic variants by gene name and display the results in a tabular view.
