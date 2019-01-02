@@ -8,10 +8,12 @@ import TableRow from '@material-ui/core/TableRow';
 import { withStyles } from '@material-ui/core/styles';
 import GeneMappings from '../GeneMappings/GeneMappings.js';
 
+// inline-styles are required to overwrite material-ui styles.
 const styles = {
   root: {
     width: '100%',
     overflowX: 'auto',
+    marginTop: '20px;'
   },
   cell: {
     verticalAlign: 'top',
