@@ -23,6 +23,7 @@ For the Client, make sure you are in the client/ directory:
 Since the data source: `/server/data/variants.tsv` is a large file, I have added it to .gitignore. Before running locally, you will have to unzip `/server/data/variants.tsv.zip`. You can do this by running the following:
 
 ```cd server/data```
+
 ```unzip variants.tsv.zip```
 
 Start the server:
