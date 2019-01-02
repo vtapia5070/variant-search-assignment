@@ -18,8 +18,15 @@ For the Client, make sure you are in the client/ directory:
 ```npm install``` or ```yarn``` (if you have yarn installed globally)
 
 ### Running App locally
+Since the data source: `/server/data/variants.tsv` is a large file, I have added it to .gitignore. Before running locally, you will have to unzip `/server/data/variants.tsv.zip`. You can do this by running the following:
+```cd server/data```
+```unzip variants.tsv.zip```
+
 Start the server:
 ```cd server```
+Unzip the data source:
+```unzip data/variants.tsv.zip```
+Run start script:
 ```npm start``` or ```yarn start``` (if you have yarn installed globally)
 The server is running on http://localhost:3001/
 
