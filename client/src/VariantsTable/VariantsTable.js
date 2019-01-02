@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
@@ -8,6 +9,10 @@ import { withStyles } from '@material-ui/core/styles';
 import GeneMappings from '../GeneMappings/GeneMappings.js';
 
 const styles = {
+  root: {
+    width: '100%',
+    overflowX: 'auto',
+  },
   cell: {
     verticalAlign: 'top',
   },
@@ -19,9 +24,9 @@ const styles = {
 class VariantsTable extends Component {
 
   render() {
-    const {cell, column} = this.props.classes;
+    const {cell, column, root} = this.props.classes;
     return (
-      <div>
+      <Paper className={root}>
         <Table>
           <TableHead>
             <TableRow>
@@ -58,7 +63,7 @@ class VariantsTable extends Component {
             })}
           </TableBody>
         </Table>
-      </div>
+      </Paper>
     );
   }
 }

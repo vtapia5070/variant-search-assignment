@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
+import SearchSuggestions from '../SearchSuggestions/SearchSuggestions.js';
 import './SearchBar.css';
 
 class SearchBar extends Component {
 
   renderSuggestedSearchItems () {
-    console.log(this.props.geneMatches);
     return this.props.geneMatches.map((gene) => (
       <div 
         className="suggestedItem" 
@@ -31,9 +31,10 @@ class SearchBar extends Component {
         />
         {
           !this.props.isSuggestionListHidden && (
-            <div className="suggestionList">
-              {this.renderSuggestedSearchItems()}
-            </div>
+            <SearchSuggestions 
+            suggestions={this.props.geneMatches} 
+            handleClick={this.props.selectGene} 
+            />
           )
         }
       </div>
